@@ -309,8 +309,8 @@ fun AlbumsContent(
                                 top = innerPaddingValues.calculateTopPadding(),
                                 bottom = bottomBarInset + 16.dp + 64.dp
                             ),
-                            verticalArrangement = Arrangement.spacedBy(8.dp),
-                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                            verticalArrangement = Arrangement.spacedBy(2.dp),
+                            horizontalArrangement = Arrangement.spacedBy(2.dp)
                         ) {
                             item(
                                 span = { GridItemSpan(maxLineSpan) },

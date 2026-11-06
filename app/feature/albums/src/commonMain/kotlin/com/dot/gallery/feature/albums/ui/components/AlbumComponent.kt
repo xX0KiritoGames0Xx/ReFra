@@ -157,7 +157,7 @@ fun AlbumComponent(
     Column(
         modifier = modifier
             .alpha(if (isEnabled) 1f else 0.4f)
-            .padding(horizontal = 8.dp),
+            .padding(horizontal = 2.dp),
     ) {
         AlbumOptionSheet(
             album = album,
@@ -218,10 +218,10 @@ fun AlbumComponent(
         }
         Text(
             modifier = Modifier
-                .padding(top = 12.dp)
-                .padding(horizontal = 16.dp),
+                .padding(top = 6.dp)
+                .padding(horizontal = 4.dp),
             text = album.label,
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.titleSmall,
             color = MaterialTheme.colorScheme.onSurface,
             overflow = TextOverflow.Ellipsis,
             maxLines = 1
@@ -229,8 +229,8 @@ fun AlbumComponent(
         if (album.count > 0) {
             Text(
                 modifier = Modifier
-                    .padding(top = 2.dp, bottom = 16.dp)
-                    .padding(horizontal = 16.dp),
+                    .padding(top = 2.dp, bottom = 6.dp)
+                    .padding(horizontal = 4.dp),
                 text = pluralStringResource(
                     Res.plurals.item_count,
                     album.count.toInt(),
@@ -238,7 +238,7 @@ fun AlbumComponent(
                 ) + if (album.size > 0) " (${formatSize(album.size)})" else "",
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = MaterialTheme.typography.labelMedium,
+                style = MaterialTheme.typography.labelSmall,
             )
         }
 
@@ -332,7 +332,7 @@ fun AlbumRowComponent(
             .alpha(if (isEnabled) 1f else 0.4f)
             .height(64.dp)
             .padding(horizontal = 8.dp)
-            .clip(Shapes.large)
+            .clip(RoundedCornerShape(10.dp))
             .combinedClickable(
                 enabled = isEnabled,
                 onClick = { onItemClick(album) },
@@ -411,7 +411,7 @@ fun AlbumRowComponent(
             Text(
                 text = album.label,
                 maxLines = 1,
-                style = MaterialTheme.typography.titleMedium
+                style = MaterialTheme.typography.titleSmall
             )
             Text(
                 text = pluralStringResource(
@@ -818,7 +818,7 @@ fun AlbumImage(
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed = interactionSource.collectIsPressedAsState()
     val cornerRadius by animateDpAsState(
-        targetValue = if (isPressed.value) 32.dp else 16.dp,
+        targetValue = if (isPressed.value) 20.dp else 10.dp,
         label = "cornerRadius"
     )
     val feedbackManager = rememberFeedbackManager()
