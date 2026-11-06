@@ -65,7 +65,13 @@ fun GalleryNavigationBarContent(
     }
     Row(
         modifier = Modifier
-            .padding(horizontal = Spacing.ExtraLarge, vertical = Spacing.ExtraLarge)
+            .padding(
+                start = Spacing.ExtraLarge,
+                end = Spacing.ExtraLarge,
+                top = Spacing.ExtraLarge,
+                // Was ExtraLarge (32dp). A small bottom gap keeps the floating bar low on screen.
+                bottom = Spacing.Small,
+            )
             .then(modifier)
             .height(ComponentSize.NavigationBarHeight)
             .clip(navigationShape)
